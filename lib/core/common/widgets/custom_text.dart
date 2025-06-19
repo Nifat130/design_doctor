@@ -35,13 +35,13 @@ class CustomText extends StatelessWidget {
     return Text(
       textAlign: textAlign,
       text,
-      style: GoogleFonts.dmSans(
+      style: GoogleFonts.inter(
         //fontFamily: 'SukhumvitSet',  // Using SukhumvitSet font
         decoration: decoration,
         decorationColor: decorationColor ?? const Color(0xffA59F92),
         fontSize: fontSize ?? 14.sp,
         color: color ?? AppColors.textPrimary,
-        fontWeight: fontWeight ?? FontWeight.w600,
+        fontWeight: fontWeight ?? FontWeight.w400,
       ),
       overflow: textOverflow,
       maxLines: maxLines,
