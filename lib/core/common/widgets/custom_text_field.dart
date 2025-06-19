@@ -38,48 +38,45 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 44.h,
-      child: TextFormField(
-        style: GoogleFonts.dmSans(
-          color: AppColors.textPrimary,
+    return TextFormField(
+      style: GoogleFonts.inter(
+        color: AppColors.textPrimary,
+        fontWeight: FontWeight.w400,
+        fontSize: fontSize.sp,
+        height: 20 / 14,
+      ),
+      maxLines:maxLine ,
+      readOnly: readOnly,
+      keyboardType: keyboardType, // Use optional keyboard type
+      obscureText: obscureText,
+      controller: controller,
+      textAlign: textAlign,
+      decoration: InputDecoration(
+        hintText: hintText,
+        prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon,
+        hintStyle: GoogleFonts.dmSans(
+          color: AppColors.textSecondary,
           fontWeight: FontWeight.w400,
           fontSize: fontSize.sp,
           height: 20 / 14,
         ),
-        maxLines:maxLine ,
-        readOnly: readOnly,
-        keyboardType: keyboardType, // Use optional keyboard type
-        obscureText: obscureText,
-        controller: controller,
-        textAlign: textAlign,
-        decoration: InputDecoration(
-          hintText: hintText,
-          prefixIcon: prefixIcon,
-          suffixIcon: suffixIcon,
-          hintStyle: GoogleFonts.dmSans(
-            color: AppColors.textSecondary,
-            fontWeight: FontWeight.w400,
-            fontSize: fontSize.sp,
-            height: 20 / 14,
-          ),
-          fillColor:fillColor ?? Colors.transparent, // Make background transparent
-          filled: true,
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: AppColors.borderColor, width: 0.5),
-            borderRadius: BorderRadius.circular(radius)
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: AppColors.borderColor, width: 0.5),
-              borderRadius: BorderRadius.circular(radius)
-          ),
-          contentPadding: EdgeInsets.only(left: 12.w,right: 10.w,top: 12.h,bottom: 12.h),
+        fillColor:fillColor ?? Colors.transparent, // Make background transparent
+        filled: true,
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: AppColors.borderColor, width: 0.5),
+          borderRadius: BorderRadius.circular(radius)
         ),
-        validator: validator,
-        onTapOutside: (c){
-          FocusScope.of(context).unfocus();
-        },
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: AppColors.borderColor, width: 0.5),
+            borderRadius: BorderRadius.circular(radius)
+        ),
+        contentPadding: EdgeInsets.only(left: 12.w,right: 10.w,top: 12.h,bottom: 12.h),
       ),
+      validator: validator,
+      onTapOutside: (c){
+        FocusScope.of(context).unfocus();
+      },
     );
   }
 }
