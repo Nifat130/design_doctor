@@ -55,4 +55,5 @@ class AppColors {
   static const Color wASecondary = Color(0xFF2b2b2b);
   static const Color wAMessageContainer = Color(0xFF005c4b);
   static const Color wAButton = Color(0xFF1dab62);
+  static const Color wAEmoji = Color(0xFFbfbfbf);
 }
