@@ -19,6 +19,7 @@ class CustomTextField extends StatelessWidget {
     this.boarderColor,
     this.boarderSide,
     this.hintTextColor,
+    this.textColor,
     this.keyboardType = TextInputType.text,
     this.readOnly = false, this.prefixIcon,
    this.fillColor, this.maxLine =1,this.radius = 8, // Default to TextInputType.text
@@ -39,6 +40,7 @@ class CustomTextField extends StatelessWidget {
   final double radius;
   final Color? boarderColor;
   final Color? hintTextColor;
+  final Color? textColor;
   final BorderSide? boarderSide;
 
 
@@ -46,7 +48,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       style: GoogleFonts.inter(
-        color: AppColors.textPrimary,
+        color: textColor ?? AppColors.textPrimary,
         fontWeight: FontWeight.w400,
         fontSize: fontSize.sp,
         height: 20 / 14,

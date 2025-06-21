@@ -88,6 +88,7 @@ class WhatsAppChatScreen extends GetView<WhatsAppController> {
                   controller: controller.messageTEController,
                   hintText: "Message",
                   hintTextColor: AppColors.white,
+                  textColor: AppColors.white,
                   radius: 99.w,
                   prefixIcon: GestureDetector(
                     onTap: (){},
@@ -109,7 +110,9 @@ class WhatsAppChatScreen extends GetView<WhatsAppController> {
                             child: Icon(Icons.link_outlined, color: AppColors.iconColor,),
                           ),
                           GestureDetector(
-                            onTap: (){},
+                            onTap: (){
+                              controller.pickImage();
+                            },
                             child: Icon(Icons.camera_alt_outlined, color: AppColors.iconColor,),
                           )
                         ],
