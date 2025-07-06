@@ -124,13 +124,18 @@ class WhatsAppChatScreen extends GetView<WhatsAppController> {
               SizedBox(width: 8.w,),
               Flexible(
                 flex: 2,
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.wAButton
+                child: GestureDetector(
+                  onTap: (){
+                    controller.submitAndPrint();
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.wAButton
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                    child: Icon(Icons.send, color: AppColors.white,),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-                  child: Icon(Icons.send, color: AppColors.white,),
                 ),
               )
             ],

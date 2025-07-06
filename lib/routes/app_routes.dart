@@ -15,6 +15,5 @@ class AppRoute {
   static List<GetPage> routes = [
     GetPage(name: whatsAppChatScreen, page: () => WhatsAppChatScreen(),),
 
-
   ];
 }
