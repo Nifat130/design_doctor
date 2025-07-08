@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           /// change for design purpose change further init
-          initialRoute: AppRoute.whatsAppChatScreen,
+          initialRoute: AppRoute.financeAppStartingScreen,
           getPages: AppRoute.routes,
           initialBinding: ControllerBinder(),
           themeMode: ThemeMode.system,
