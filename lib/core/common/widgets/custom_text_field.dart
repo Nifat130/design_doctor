@@ -16,6 +16,10 @@ class CustomTextField extends StatelessWidget {
     this.fontSize = 14,
     this.textAlign = TextAlign.start,
     this.validator,
+    this.boarderColor,
+    this.boarderSide,
+    this.hintTextColor,
+    this.textColor,
     this.keyboardType = TextInputType.text,
     this.readOnly = false, this.prefixIcon,
    this.fillColor, this.maxLine =1,this.radius = 8, // Default to TextInputType.text
@@ -34,13 +38,17 @@ class CustomTextField extends StatelessWidget {
   final double fontSize;
   final int maxLine;
   final double radius;
+  final Color? boarderColor;
+  final Color? hintTextColor;
+  final Color? textColor;
+  final BorderSide? boarderSide;
 
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       style: GoogleFonts.inter(
-        color: AppColors.textPrimary,
+        color: textColor ?? AppColors.textPrimary,
         fontWeight: FontWeight.w400,
         fontSize: fontSize.sp,
         height: 20 / 14,
@@ -56,7 +64,7 @@ class CustomTextField extends StatelessWidget {
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         hintStyle: GoogleFonts.dmSans(
-          color: AppColors.textSecondary,
+          color: hintTextColor ?? AppColors.textSecondary,
           fontWeight: FontWeight.w400,
           fontSize: fontSize.sp,
           height: 20 / 14,
@@ -64,11 +72,11 @@ class CustomTextField extends StatelessWidget {
         fillColor:fillColor ?? Colors.transparent, // Make background transparent
         filled: true,
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: AppColors.borderColor, width: 0.5),
+          borderSide: boarderSide ?? BorderSide(color: boarderColor ?? AppColors.borderColor, width: 0.5),
           borderRadius: BorderRadius.circular(radius)
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: AppColors.borderColor, width: 0.5),
+            borderSide: boarderSide ?? BorderSide(color: boarderColor ?? AppColors.borderColor, width: 0.5),
             borderRadius: BorderRadius.circular(radius)
         ),
         contentPadding: EdgeInsets.only(left: 12.w,right: 10.w,top: 12.h,bottom: 12.h),

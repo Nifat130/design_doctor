@@ -15,7 +15,6 @@ class WhatsAppChatScreen extends GetView<WhatsAppController> {
     return SafeArea(
       top: false,
       child: Scaffold(
-        backgroundColor: AppColors.wAMessageContainer,
         body: Container(
           height: double.infinity,
           width: double.infinity,
@@ -31,7 +30,7 @@ class WhatsAppChatScreen extends GetView<WhatsAppController> {
                 ),
                 child: SafeArea(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
+                    padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,25 +70,74 @@ class WhatsAppChatScreen extends GetView<WhatsAppController> {
                   ),
                 ),
               ),
-      
             ],
           ),
         ),
-        bottomNavigationBar: Padding(
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage(ImagePath.whatsAppBG,), fit: BoxFit.fitWidth)
+          ),
           padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Expanded(
+              Flexible(
+                flex: 18,
                 child: CustomTextField(
                   controller: controller.messageTEController,
                   hintText: "Message",
-                  fillColor: AppColors.wAMessageContainer,
+                  hintTextColor: AppColors.white,
+                  textColor: AppColors.white,
+                  radius: 99.w,
+                  prefixIcon: GestureDetector(
+                    onTap: (){},
+                    child: Icon(Icons.sticky_note_2_outlined, color: AppColors.iconColor,),
+                  ),
+                  fillColor: AppColors.wASecondary,
+                  boarderSide: BorderSide.none,
+                  suffixIcon: SizedBox(
+                    width: 70.w,
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 10.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        spacing: 10.w,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          GestureDetector(
+                            onTap: (){},
+                            child: Icon(Icons.link_outlined, color: AppColors.iconColor,),
+                          ),
+                          GestureDetector(
+                            onTap: (){
+                              controller.pickImage();
+                            },
+                            child: Icon(Icons.camera_alt_outlined, color: AppColors.iconColor,),
+                          )
+                        ],
+                      ),
+                    ),
+                  )
                 ),
               ),
-              // You can add send button/icon here if needed
-              SizedBox(width: 8.w),
-              Icon(Icons.send, color: AppColors.white),
+              SizedBox(width: 8.w,),
+              Flexible(
+                flex: 2,
+                child: GestureDetector(
+                  onTap: (){
+                    controller.submitAndPrint();
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.wAButton
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                    child: Icon(Icons.send, color: AppColors.white,),
+                  ),
+                ),
+              )
             ],
           ),
         ),
