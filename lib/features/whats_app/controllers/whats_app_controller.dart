@@ -24,9 +24,26 @@ class WhatsAppController extends GetxController{
   }
 
   void submitAndPrint() {
-     myBox.put("message", messageTEController.text);
-     final fetchedMessage = myBox.get("message");
+    final list = ["nifat", 'mahin'];
+    final list1 = [
+      {
+        "name" : "Nifat",
+        "password" : "Nifat",
+      },
+      {
+        "name" : "Mahin",
+        "password" : "Mahin",
+      },
+    ];
 
-     log(fetchedMessage);
+    myBox.put("message", messageTEController.text);
+    myBox.put("list", list1.toList());
+
+    // final String fetchedMessage = myBox.get("list")??"";
+    //
+    //  print(fetchedMessage.split(",").toList());
+    final List<Map<String, dynamic>> fetchedMessage = myBox.get("list");
+    log(fetchedMessage[0]['name']);
+
   }
 }
